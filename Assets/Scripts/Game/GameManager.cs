@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-	public enum Pieces {
+	/*public enum Pieces {
 		None,
 		Pawn,
 		Bishop,
 		Knight,
 		Rook,
 		Queen
-	}
+	}*/
 
 	int layerMask = 1 << 2;
 
@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject[] enemies;
 	int enemyIndex = 0;
 
+	[Header("Holograms")]
 	GameObject[] holograms;
-	public Material hologramMaterial;
 
 	GameObject clone;
 

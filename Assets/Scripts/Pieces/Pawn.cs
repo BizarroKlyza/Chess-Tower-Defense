@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pawn : MonoBehaviour {
 
-	float range = 5.2f;
+	float range = 2.2f;
 	float health = 100f;
 	float damage = 20f;
 	float bulletSpeed = 5f;
