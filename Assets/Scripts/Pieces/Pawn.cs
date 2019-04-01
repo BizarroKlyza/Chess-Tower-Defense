@@ -11,20 +11,31 @@ public class Pawn : MonoBehaviour {
 	float fireSpeed = 1.5f;
 	Vector3 bulletDirection;
 
+	Vector3 muzzle = new Vector3(0.2f, 1f, 0f);
+
 	public GameObject bullet;
 	Bullet bulletScript;
+
+	float timer = 0f;
 
 	void Start() {
 		bulletDirection = new Vector3(1f, 0f, 0f);
 		bulletScript = bullet.GetComponent<Bullet>();
-		InvokeRepeating("Fire", 1.0f, fireSpeed);
 	}
 
 	void Fire() {
-		Instantiate(bullet, this.transform.position, Quaternion.identity);
+		Instantiate(bullet, this.transform.position + muzzle, Quaternion.identity);
 		bulletScript.range = range;
 		bulletScript.damage = damage;
 		bulletScript.bulletSpeed = bulletSpeed;
 		bulletScript.direction = bulletDirection;
+	}
+
+	void Update() {
+		timer += Time.deltaTime;
+		if (timer >= fireSpeed) {
+			timer -= fireSpeed;
+			Fire();
+		}
 	}
 }
