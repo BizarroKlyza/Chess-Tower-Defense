@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pawn : MonoBehaviour {
+public class Rook : MonoBehaviour {
 
-	float range = 2.2f;
+	float range = 8.2f;
 	float health = 100f;
 	float damage = 20f;
 	float bulletSpeed = 5f;

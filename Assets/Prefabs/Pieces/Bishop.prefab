@@ -9,34 +9,34 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1241982211808488}
+  m_RootGameObject: {fileID: 1645509733542096}
   m_IsPrefabAsset: 1
---- !u!1 &1241982211808488
+--- !u!1 &1645509733542096
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4660785020735320}
-  - component: {fileID: 114840655174777178}
+  - component: {fileID: 4094375518538870}
+  - component: {fileID: 114832785203068670}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Bishop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1402788313581082
+--- !u!1 &1757212039456170
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4195616686471386}
-  - component: {fileID: 33510643987565428}
-  - component: {fileID: 23776001250494130}
+  - component: {fileID: 4996127945427884}
+  - component: {fileID: 33068218074750522}
+  - component: {fileID: 23941825087201380}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -44,39 +44,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4195616686471386
+--- !u!4 &4094375518538870
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1402788313581082}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.051, y: 1.035, z: -0.004}
-  m_LocalScale: {x: 0.27500072, y: 0.275, z: 0.27500072}
-  m_Children: []
-  m_Father: {fileID: 4660785020735320}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!4 &4660785020735320
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1241982211808488}
+  m_GameObject: {fileID: 1645509733542096}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4195616686471386}
+  - {fileID: 4996127945427884}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23776001250494130
+--- !u!4 &4996127945427884
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1757212039456170}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0009999275, y: 1.255548, z: -0.00006400142}
+  m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
+  m_Children: []
+  m_Father: {fileID: 4094375518538870}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23941825087201380
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1402788313581082}
+  m_GameObject: {fileID: 1757212039456170}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -106,22 +106,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33510643987565428
+--- !u!33 &33068218074750522
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1402788313581082}
-  m_Mesh: {fileID: 4300000, guid: 150997c70c117c44985279139642675d, type: 3}
---- !u!114 &114840655174777178
+  m_GameObject: {fileID: 1757212039456170}
+  m_Mesh: {fileID: 4300000, guid: fd619be2f7035ea49b556c3ce6118cca, type: 3}
+--- !u!114 &114832785203068670
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1241982211808488}
+  m_GameObject: {fileID: 1645509733542096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4199738364dd20744b6907da1e1b54f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 30a10bb96e1b4074f8a43d36e56ca8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1243471911907366, guid: 69c0797b32e60f840b9ea7d363350492, type: 2}

@@ -4,7 +4,7 @@ using UnityEngine;
 public class Selector : MonoBehaviour {
 
 	int layerMask = 1 << 2;
-	int index = 0;
+	int index = 1;
 	float timer = 0f;
 
 	[Header("Pieces")]
@@ -20,7 +20,7 @@ public class Selector : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.LeftArrow)) {
 			index = (index + pieces.Length - 1) % pieces.Length;
 		}
-		else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+		else if (Input.GetKeyDown(KeyCode.RightArrow)) {
 			index = (index + 1) % pieces.Length;
 		}
 
@@ -36,11 +36,11 @@ public class Selector : MonoBehaviour {
 			Placeable p = hit.transform.GetComponent<Placeable>();
 			if (p && p.enabled) {
 				if (Input.GetMouseButtonDown(0)) {
-					Instantiate(pieces[index], hit.transform.position + new Vector3(0f, 1.08f, 0f), Quaternion.identity, piecesParent);
+					Instantiate(pieces[index], hit.transform.position, Quaternion.identity, piecesParent);
 					p.enabled = false;
 				} else {
 					holograms[index].SetActive(true);
-					holograms[index].transform.position = p.transform.position + Vector3.up;
+					holograms[index].transform.position = p.transform.position;
 				}
 			}
 		}
