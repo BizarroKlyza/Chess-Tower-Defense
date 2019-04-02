@@ -38,14 +38,14 @@ public class Knight : MonoBehaviour {
 
 		timer += Time.deltaTime;
 
-		if (timer >= 0) {
-			if (prevTime < 1 && 1 <= timer) {
+		if (timer >= 1) {
+			if (prevTime < 2 && 2 <= timer) {
 				children[2].GetComponent<Boomerang>().enemies.Clear();
 				children[4].GetComponent<Boomerang>().enemies.Clear();
 			}
-			if (timer >= 2) {
+			if (timer + Time.deltaTime >= 3) {
 
-				timer = -1;
+				timer -= 3;
 				velocity = new Vector3(4.6f, 0f, -2.4f);
 				negVel = -velocity;
 				children[2].position = originalPos;

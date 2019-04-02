@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4966366317588932}
   - component: {fileID: 114218588001401014}
+  - component: {fileID: 135373619452368560}
   m_Layer: 0
   m_Name: Boomerang
   m_TagString: Untagged
@@ -87,6 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4487297525292546}
   - component: {fileID: 114261657597936118}
+  - component: {fileID: 135958445620259762}
   m_Layer: 0
   m_Name: Boomerang
   m_TagString: Untagged
@@ -356,3 +358,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98442c4e9a672724ca6381132f17f2ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &135373619452368560
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654512435056706}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0.09, y: 0.03, z: 0}
+--- !u!135 &135958445620259762
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1774708430105890}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0.09, y: 0.03, z: 0}

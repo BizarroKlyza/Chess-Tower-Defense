@@ -17,6 +17,10 @@ public class Bullet : MonoBehaviour {
 
 	void Update() {
 		this.transform.position += direction*bulletSpeed*Time.deltaTime;
+		if (this.transform.position.x < -0.6f || this.transform.position.x > 7.6f
+		|| this.transform.position.z < -0.6f || this.transform.position.z > 7.6f) {
+			Destroy(this.gameObject);
+		}
 		if (Vector3.Distance(startPos, this.transform.position) > range) {
 			Destroy(this.gameObject);
 		}
