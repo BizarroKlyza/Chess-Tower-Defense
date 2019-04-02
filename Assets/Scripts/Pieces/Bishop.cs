@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bishop : MonoBehaviour {
 
-	float range = 6.2f;
+	float range = 8f;
 	float health = 100f;
 	float damage = 20f;
 	float bulletSpeed = 5f;
