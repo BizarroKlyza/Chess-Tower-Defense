@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Knight : MonoBehaviour {
 
+	float health = 100f;
+	//float damage = 20f;
+
 	Transform[] children;
 
 	Vector3 originalPos;
@@ -21,7 +24,11 @@ public class Knight : MonoBehaviour {
 	float timer = 0f;
 	float prevTime = 0f;
 
+	Health healthScript;
+
 	void Start() {
+		healthScript = this.GetComponent<Health>();
+		healthScript.health = health;
 		children = GetComponentsInChildren<Transform>();
 		originalPos = children[2].position;
 		originalRot = children[2].rotation;
@@ -35,6 +42,12 @@ public class Knight : MonoBehaviour {
 	}
 
 	void Update() {
+		health = healthScript.health;
+		if (health <= 0) {
+			Instantiate(Resources.Load<GameObject>("Prefabs/World/Explosion"), this.transform.position + Vector3.up, Quaternion.identity);
+			transform.parent.gameObject.GetComponent<Placeable>().enabled = true;
+			Destroy(this.gameObject);
+		}
 
 		timer += Time.deltaTime;
 

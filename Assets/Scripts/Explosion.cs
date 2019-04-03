@@ -10,9 +10,14 @@ public class Explosion : MonoBehaviour {
 
         timer += Time.deltaTime;
         this.transform.localScale += new Vector3(20 * Time.deltaTime, 20 * Time.deltaTime, 20 * Time.deltaTime);
-
-        if (timer >= 0.1f) {
+        if (timer >= 0.1f)
+        {
+            GetComponent<MeshRenderer>().enabled = false;
+        }
+        if (timer > 2f)
+        {
             Destroy(this.gameObject);
+
         }
     }
 }

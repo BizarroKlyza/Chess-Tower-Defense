@@ -27,10 +27,12 @@ public class Bullet : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Debug.Log("HELLO");
-		if (other.tag == "Enemy") {
-			other.transform.parent.gameObject.GetComponent<Enemy>().health -= damage;
+		if (!other.isTrigger) {
+			if (other.tag == "Enemy") {
+				other.gameObject.transform.parent.gameObject.GetComponent<Enemy>().health -= damage;
+			}
+			Destroy(this.gameObject);
+
 		}
-		Destroy(this.gameObject);
 	}
 }

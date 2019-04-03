@@ -36,7 +36,7 @@ public class Selector : MonoBehaviour {
 			Placeable p = hit.transform.GetComponent<Placeable>();
 			if (p && p.enabled) {
 				if (Input.GetMouseButtonDown(0)) {
-					Instantiate(pieces[index], hit.transform.position, Quaternion.identity, piecesParent);
+					Instantiate(pieces[index], hit.transform.position, Quaternion.identity, hit.transform);
 					p.enabled = false;
 				} else {
 					holograms[index].SetActive(true);
