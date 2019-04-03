@@ -8,12 +8,14 @@ public class Boomerang : MonoBehaviour {
 	public List<GameObject> enemies = new List<GameObject>();
 
 	void OnTriggerEnter(Collider other) {
-		GameObject otherGameObject = other.gameObject;
-		if (otherGameObject.CompareTag("Enemy")) {
-			if (!enemies.Contains(otherGameObject)) {
-				enemies.Add(otherGameObject);
-				otherGameObject.GetComponent<Enemy>().health -= damage;
-			}
+		if (!other.isTrigger) {
+			if (other.tag == "Enemy") {
+				GameObject gameObj = other.gameObject;
+				if (!enemies.Contains(gameObj)) {
+					enemies.Add(gameObj);
+					gameObj.transform.parent.gameObject.GetComponent<Enemy>().health -= damage;
+				}
+			}	
 		}
 	}
 }

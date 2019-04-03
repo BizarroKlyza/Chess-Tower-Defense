@@ -26,8 +26,11 @@ public class Queen : MonoBehaviour {
 	public GameObject bullet;
 
 	float timer = 0f;
+	Health healthScript;
 
 	void Start() {
+		healthScript = this.GetComponent<Health>();
+		healthScript.health = health;
 	}
 
 	void Fire() {
@@ -41,6 +44,12 @@ public class Queen : MonoBehaviour {
 	}
 	
 	void Update() {
+		health = healthScript.health;
+		if (health <= 0) {
+			Instantiate(Resources.Load<GameObject>("Prefabs/World/Explosion"), this.transform.position + Vector3.up, Quaternion.identity);
+			transform.parent.gameObject.GetComponent<Placeable>().enabled = true;
+			Destroy(this.gameObject);
+		}
 		timer += Time.deltaTime;
 		if (timer >= fireSpeed) {
 			timer -= fireSpeed;

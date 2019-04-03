@@ -313,3 +313,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  attacking: 0
+  target: {fileID: 0}

@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour {
-	public GameObject menuPanel, optionsPanel;
+	public GameObject menuPanel, optionsPanel, aboutPanel;
 
 	public void LoadScene(int sceneId) {
 		SceneManager.LoadScene(sceneId);
@@ -16,15 +17,16 @@ public class MainMenu : MonoBehaviour {
 		Application.Quit();
 	}
 
-	public void OptionsToggle(bool toggle) {
-		if (toggle) {
-			menuPanel.SetActive(false);
-			optionsPanel.SetActive(true);
+	// ya boi anthony the artist coded this
 
-		}
-		else {
-			menuPanel.SetActive(true);
-			optionsPanel.SetActive(false);
-		}
+	public void MenuPanelToggle (GameObject panel) {
+		menuPanel.SetActive(false);
+		panel.SetActive(true);
+	}
+
+	public void BackButton () {
+
+		EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.SetActive(false);
+		menuPanel.SetActive(true);
 	}
 }
