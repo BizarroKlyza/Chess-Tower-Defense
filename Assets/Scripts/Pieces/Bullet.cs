@@ -27,9 +27,9 @@ public class Bullet : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		GameObject otherGameObject = other.gameObject;
-		if (otherGameObject.CompareTag("Enemy")) {
-			otherGameObject.GetComponent<Enemy>().health -= damage;
+		Debug.Log("HELLO");
+		if (other.tag == "Enemy") {
+			other.transform.parent.gameObject.GetComponent<Enemy>().health -= damage;
 		}
 		Destroy(this.gameObject);
 	}

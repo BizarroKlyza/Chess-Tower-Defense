@@ -10,6 +10,7 @@ public class Pawn : MonoBehaviour {
 	float bulletSpeed = 5f;
 	float fireSpeed = 1.5f;
 	Vector3 bulletDirection;
+	Health healthScript;
 
 	Vector3 muzzle = new Vector3(0.2f, 1f, 0f);
 
@@ -19,6 +20,8 @@ public class Pawn : MonoBehaviour {
 	float timer = 0f;
 
 	void Start() {
+		healthScript = this.GetComponent<Health>();
+		healthScript.health = health;
 		bulletDirection = new Vector3(1f, 0f, 0f);
 		bulletScript = bullet.GetComponent<Bullet>();
 	}
@@ -32,6 +35,11 @@ public class Pawn : MonoBehaviour {
 	}
 
 	void Update() {
+		health = healthScript.health;
+		if (health <= 0) {
+			Instantiate(Resources.Load<GameObject>("Prefabs/World/Explosion"), this.transform.position, Quaternion.identity);
+			Destroy(this.gameObject);
+		}
 		timer += Time.deltaTime;
 		if (timer >= fireSpeed) {
 			timer -= fireSpeed;
