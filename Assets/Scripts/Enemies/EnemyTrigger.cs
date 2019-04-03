@@ -4,26 +4,25 @@ using UnityEngine;
 
 public class EnemyTrigger : MonoBehaviour {
 
-	List<GameObject> targets = new List<GameObject>();
-	Enemy par;
+	public Enemy par;
+
+	GameObject piece;
 
 	void Start() {
+		Debug.Log("YO");
 		par = transform.parent.parent.gameObject.GetComponent<Enemy>();
 	}
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
 			par.attacking = true;
-			targets.Add(other.gameObject);
+			piece = other.gameObject.transform.parent.gameObject;
+			par.target = piece;
 		}
 	}
 
-	void OnTriggerExit(Collider other) {
-		if (other.tag == "Player") {
-			if (targets.Count == 0) {
-				par.attacking = false;
-			}
-			targets.Remove(other.gameObject);
+	void Update() {
+		if (!piece) {
+			par.attacking = false;
 		}
-		
 	}
 }

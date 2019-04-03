@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour {
 	float attackSpeed= 0.5f;
 	Vector3 velocity;
     public bool attacking;
-	GameObject target;
+	public GameObject target;
 	float timer = 0f;
 
 	void Start() {
@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour {
 
 	void Update() {
 		if (health <= 0) {
-            Instantiate(Resources.Load<GameObject>("Prefabs/World/Explosion"), this.transform.position, Quaternion.identity);
+            Instantiate(Resources.Load<GameObject>("Prefabs/World/Explosion"), this.transform.position + Vector3.up, Quaternion.identity);
 			Destroy(this.gameObject);
 		}
         if (attacking) {
@@ -32,12 +32,4 @@ public class Enemy : MonoBehaviour {
 		    this.transform.position += velocity;
 		}
 	}
-
-    void OnTriggerEnter(Collider other) {
-		Debug.Log("LOG!");
-        if (other.tag == "Player") {
-            attacking = true;
-			target = other.gameObject;
-        }
-    }
 }

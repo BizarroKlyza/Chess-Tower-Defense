@@ -17,8 +17,11 @@ public class Rook : MonoBehaviour {
 	Bullet bulletScript;
 
 	float timer = 0f;
+	Health healthScript;
 
 	void Start() {
+		healthScript = this.GetComponent<Health>();
+		healthScript.health = health;
 		bulletDirection = new Vector3(1f, 0f, 0f);
 		bulletScript = bullet.GetComponent<Bullet>();
 	}
@@ -32,6 +35,12 @@ public class Rook : MonoBehaviour {
 	}
 
 	void Update() {
+		health = healthScript.health;
+		if (health <= 0) {
+			Instantiate(Resources.Load<GameObject>("Prefabs/World/Explosion"), this.transform.position + Vector3.up, Quaternion.identity);
+			transform.parent.gameObject.GetComponent<Placeable>().enabled = true;
+			Destroy(this.gameObject);
+		}
 		timer += Time.deltaTime;
 		if (timer >= fireSpeed) {
 			timer -= fireSpeed;
