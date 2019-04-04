@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
 
-	[Header("Enemies)]
+	[Header("Enemies")]
 	public GameObject[] enemies;
 	public Transform enemiesParent;
 	int index = 0;

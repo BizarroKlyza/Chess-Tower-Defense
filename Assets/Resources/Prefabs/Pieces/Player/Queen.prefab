@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4881522462646440}
   - component: {fileID: 114705550524182316}
-  - component: {fileID: 114648505012640382}
   m_Layer: 0
   m_Name: Queen
   m_TagString: Player
@@ -200,18 +199,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114648505012640382
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1067785864416692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af92e0f173d6c064794e41a6b5cb0711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
 --- !u!114 &114705550524182316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,4 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe162fc8cad764439ae8269f4e834e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashing: 0
+  health: 0
+  timer: 0
+  flashTimer: 0
+  mat: {fileID: 0}
   bullet: {fileID: 1243471911907366, guid: 69c0797b32e60f840b9ea7d363350492, type: 2}

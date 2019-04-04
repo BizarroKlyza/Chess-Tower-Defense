@@ -5,7 +5,6 @@ public class Selector : MonoBehaviour {
 
 	int layerMask = 1 << 2;
 	int index = 0;
-	float timer = 0f;
 
 	[Header("Pieces")]
 	public GameObject[] pieces;
