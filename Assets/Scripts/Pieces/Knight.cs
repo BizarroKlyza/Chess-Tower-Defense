@@ -58,6 +58,9 @@ public class Knight : MonoBehaviour {
 			}
 			if (timer + Time.deltaTime >= 3) {
 
+				children[2].GetComponent<Boomerang>().enemies.Clear();
+				children[4].GetComponent<Boomerang>().enemies.Clear();
+
 				timer -= 3;
 				velocity = new Vector3(4.6f, 0f, -2.4f);
 				negVel = -velocity;
