@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Queen : MonoBehaviour {
+public class Queen : Player {
 
 	float range = 8f;
-	float health = 100f;
 	float damage = 20f;
 	float bulletSpeed = 5f;
 	float fireSpeed = 1.5f;
@@ -25,12 +24,9 @@ public class Queen : MonoBehaviour {
 
 	public GameObject bullet;
 
-	float timer = 0f;
-	Health healthScript;
-
-	void Start() {
-		healthScript = this.GetComponent<Health>();
-		healthScript.health = health;
+	public override void Start() {
+		health = 100f;
+		base.Start();
 	}
 
 	void Fire() {
@@ -43,13 +39,8 @@ public class Queen : MonoBehaviour {
 		}
 	}
 	
-	void Update() {
-		health = healthScript.health;
-		if (health <= 0) {
-			Instantiate(Resources.Load<GameObject>("Prefabs/World/Explosion"), this.transform.position + Vector3.up, Quaternion.identity);
-			transform.parent.gameObject.GetComponent<Placeable>().enabled = true;
-			Destroy(this.gameObject);
-		}
+	public override void Update() {
+		base.Update();
 		timer += Time.deltaTime;
 		if (timer >= fireSpeed) {
 			timer -= fireSpeed;

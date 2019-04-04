@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33389404502920958}
   - component: {fileID: 23647439871090748}
   - component: {fileID: 65294508257511950}
-  - component: {fileID: 54560357056305302}
   m_Layer: 0
   m_Name: Body
   m_TagString: Enemy
@@ -38,7 +37,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4302376382647256}
-  - component: {fileID: 114743772991415700}
+  - component: {fileID: 54749307542691428}
+  - component: {fileID: 114617597669315920}
   m_Layer: 0
   m_Name: Bishop_Enemy
   m_TagString: Enemy
@@ -55,7 +55,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4886257023852046}
   - component: {fileID: 33309329242535566}
-  - component: {fileID: 23853952528488634}
   - component: {fileID: 65647384180763070}
   m_Layer: 0
   m_Name: Trigger
@@ -206,41 +205,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!23 &23853952528488634
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1689509310619184}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!33 &33148848721221444
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -262,12 +226,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1319201464050704}
   m_Mesh: {fileID: 4300000, guid: 940610779f99a3847a9b0bdb3d8e9519, type: 3}
---- !u!54 &54560357056305302
+--- !u!54 &54749307542691428
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1319201464050704}
+  m_GameObject: {fileID: 1492309424862060}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -275,7 +239,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &65294508257511950
 BoxCollider:
@@ -301,7 +265,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114743772991415700
+--- !u!114 &114617597669315920
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -309,9 +273,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1492309424862060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ede10dbfa60fa484ea92349aa55919fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 39f4a84805257f34590e4a8c3fd26210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  flashing: 0
+  health: 0
+  timer: 0
+  flashTimer: 0
+  mat: {fileID: 0}
+  damage: 0
+  speed: 0
+  attackSpeed: 0
   attacking: 0
   target: {fileID: 0}

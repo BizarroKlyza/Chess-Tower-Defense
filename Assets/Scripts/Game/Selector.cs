@@ -4,8 +4,7 @@ using UnityEngine;
 public class Selector : MonoBehaviour {
 
 	int layerMask = 1 << 2;
-	int index = 1;
-	float timer = 0f;
+	int index = 0;
 
 	[Header("Pieces")]
 	public GameObject[] pieces;
