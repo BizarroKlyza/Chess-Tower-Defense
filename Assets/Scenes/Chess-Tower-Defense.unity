@@ -2761,6 +2761,7 @@ MonoBehaviour:
   - {fileID: 1400339737701738, guid: 6252eedbb39d95d4784d2f4745522d12, type: 2}
   - {fileID: 1761155873971946, guid: c29789956925e1a4c952e2c2bc87f1ec, type: 2}
   - {fileID: 1492309424862060, guid: fe32d7405ee9f144d8815845d1cae45d, type: 2}
+  - {fileID: 1588383907919056, guid: d03d279ca44c6b34cacb9c7f42254678, type: 2}
   enemiesParent: {fileID: 398768910}
 --- !u!4 &579286180
 Transform:
@@ -12817,3 +12818,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19a268f49c2e9844ab00cc6cdcda55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2138956168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 2d0766d8df4663b46b8c032a0bfad10a,
+    type: 3}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2138956169}
+  m_Layer: 0
+  m_Name: cart full
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2138956169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 2d0766d8df4663b46b8c032a0bfad10a,
+    type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2138956168}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
