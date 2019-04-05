@@ -12,12 +12,14 @@ public abstract class Piece : MonoBehaviour {
 	MeshRenderer[] meshes;
 	GameObject explosion;
 	Material flashMat;
+	Material weaponMat;
 	public Material mat;
 
 	public virtual void Start() {
 
 		explosion = Resources.Load<GameObject>("Prefabs/World/Explosion");
 		flashMat = Resources.Load<Material>("Materials/Flash");
+		weaponMat = Resources.Load<Material>("Materials/Weapon");
 
 		Component[] components = GetComponentsInChildren(typeof(MeshRenderer));
 		meshes = new MeshRenderer[components.Length];
@@ -42,7 +44,11 @@ public abstract class Piece : MonoBehaviour {
 				flashTimer = 0f;
 				flashing = false;
 				foreach (MeshRenderer mesh in meshes) {
-					mesh.material = mat;
+					if (mesh.tag == "Weapon") {
+						mesh.material = weaponMat;
+					} else {
+						mesh.material = mat;
+					}
 				}
 			}
 		}
