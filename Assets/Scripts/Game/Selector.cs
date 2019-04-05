@@ -12,8 +12,8 @@ public class Selector : MonoBehaviour {
 	[Header("Holograms")]
 	public GameObject[] holograms;
 
-	int[] originalUnused = { 3, 3, 3, 3, 3 };
-	int[] unused = { 3, 3, 3, 3, 3 };
+	int[] originalUnused = { 8, 6, 6, 6, 2 };
+	int[] unused = { 8, 6, 6, 6, 2 };
 	Vector3 unusedPos;
 
 	// List in use. Not actually an unused list
@@ -74,7 +74,7 @@ public class Selector : MonoBehaviour {
 					Instantiate(pieces[index], hit.transform.position, Quaternion.identity, hit.transform);
 					p.enabled = false;
 					unused[index] -= 1;
-					//UpdateUnused();
+					UpdateUnused();
 				} else {
 					holograms[index].SetActive(true);
 					holograms[index].transform.position = p.transform.position;

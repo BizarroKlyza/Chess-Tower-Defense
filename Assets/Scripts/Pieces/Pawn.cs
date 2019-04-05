@@ -19,11 +19,11 @@ public class Pawn : Player {
 		health = 80f;
 		base.Start();
 		bulletDirection = new Vector3(1f, 0f, 0f);
-		bulletScript = bullet.GetComponent<Bullet>();
+		//bulletScript = bullet.GetComponent<Bullet>();
 	}
 
 	void Fire() {
-		Instantiate(bullet, this.transform.position + muzzle, Quaternion.identity);
+		bulletScript = Instantiate(bullet, this.transform.position + muzzle, Quaternion.identity).GetComponent<Bullet>();
 		bulletScript.range = range;
 		bulletScript.damage = damage;
 		bulletScript.bulletSpeed = bulletSpeed;
