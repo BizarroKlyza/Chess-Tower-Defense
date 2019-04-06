@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boomerang : MonoBehaviour {
 
-	public float damage;
+	float damage = 15f;
 	public List<GameObject> enemies = new List<GameObject>();
 
 	void OnTriggerEnter(Collider other) {
@@ -13,7 +13,9 @@ public class Boomerang : MonoBehaviour {
 				GameObject gameObj = other.gameObject;
 				if (!enemies.Contains(gameObj)) {
 					enemies.Add(gameObj);
-					gameObj.transform.parent.gameObject.GetComponent<Enemy>().health -= damage;
+					Enemy enemy = gameObj.transform.parent.gameObject.GetComponent<Enemy>();
+					enemy.health -= damage;
+					enemy.flashing = true;
 				}
 			}	
 		}

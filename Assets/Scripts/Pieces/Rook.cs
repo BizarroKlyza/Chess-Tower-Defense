@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rook : MonoBehaviour {
+public class Rook : Player {
 
 	float range = 8.2f;
-	float health = 100f;
 	float damage = 20f;
 	float bulletSpeed = 5f;
 	float fireSpeed = 1.5f;
@@ -16,31 +15,23 @@ public class Rook : MonoBehaviour {
 	public GameObject bullet;
 	Bullet bulletScript;
 
-	float timer = 0f;
-	Health healthScript;
-
-	void Start() {
-		healthScript = this.GetComponent<Health>();
-		healthScript.health = health;
-		bulletDirection = new Vector3(1f, 0f, 0f);
-		bulletScript = bullet.GetComponent<Bullet>();
+	public override void Start() {
+		health = 250f;
+		base.Start();
+		bulletDirection = new Vector3(-1f, 0f, 0f);
+		//bulletScript = bullet.GetComponent<Bullet>();
 	}
 
 	void Fire() {
-		Instantiate(bullet, this.transform.position + muzzle, Quaternion.identity);
+		bulletScript = Instantiate(bullet, this.transform.position + muzzle, Quaternion.identity).GetComponent<Bullet>();
 		bulletScript.range = range;
 		bulletScript.damage = damage;
 		bulletScript.bulletSpeed = bulletSpeed;
 		bulletScript.direction = bulletDirection;
 	}
 
-	void Update() {
-		health = healthScript.health;
-		if (health <= 0) {
-			Instantiate(Resources.Load<GameObject>("Prefabs/World/Explosion"), this.transform.position + Vector3.up, Quaternion.identity);
-			transform.parent.gameObject.GetComponent<Placeable>().enabled = true;
-			Destroy(this.gameObject);
-		}
+	public override void Update() {
+		base.Update();
 		timer += Time.deltaTime;
 		if (timer >= fireSpeed) {
 			timer -= fireSpeed;
