@@ -12,51 +12,50 @@ public class Selector : MonoBehaviour {
 	[Header("Holograms")]
 	public GameObject[] holograms;
 
-    int[] originalUnused = { 2, 2, 2, 2, 2 };
-    int[] unused = { 2, 2, 2, 2, 2 };
-    Vector3 unusedPos;
+	int[] originalUnused = { 8, 6, 6, 6, 2 };
+	int[] unused = { 8, 6, 6, 6, 2 };
+	Vector3 unusedPos;
 
-    // List in use. Not actually an unused list
-    List<GameObject> unusedList = new List<GameObject>();
+	// List in use. Not actually an unused list
+	List<GameObject> unusedList = new List<GameObject>();
 
-    void UpdateUnused() {
+	void UpdateUnused() {
 
-        foreach (GameObject piece in unusedList)
-        {
-            Destroy(piece);
-        }
+		foreach (GameObject piece in unusedList) {
+			Destroy(piece);
+		}
 
-        unusedList.Clear();
+		unusedList.Clear();
 
-        unusedPos = new Vector3(7f, -1f, -2f);
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < originalUnused[i]; j++)
-            {
-                if (j < unused[i]) {
-                    unusedList.Add(Instantiate(pieces[i], unusedPos, Quaternion.identity));
+		unusedPos = new Vector3(7f, -1f, -2f);
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < originalUnused[i]; j++) {
+				if (j < unused[i]) {
+					GameObject clone = Instantiate(pieces[i], unusedPos, Quaternion.identity);
+					Destroy(clone.GetComponent<Piece>());
+					unusedList.Add(clone);
 
-                }
+				}
 
-                if (unusedPos.x == 0)
-                {
-                    unusedPos.x = 7;
-                    unusedPos.z -= 1;
-                }
-                else
-                {
-                    unusedPos.x -= 1;
-                }
-            }
-        }
-    }
+				if (unusedPos.x == 0) {
+					unusedPos.x = 7;
+					unusedPos.z -= 1;
+				} else {
+					unusedPos.x -= 1;
+				}
+			}
+		}
+	}
 
-	void Update() {    
-        
+	void Start() {
+		UpdateUnused();
+	}
+
+	void Update() {
+
 		if (Input.GetKeyDown(KeyCode.LeftArrow)) {
 			index = (index + pieces.Length - 1) % pieces.Length;
-		}
-		else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+		} else if (Input.GetKeyDown(KeyCode.RightArrow)) {
 			index = (index + 1) % pieces.Length;
 		}
 
@@ -74,8 +73,8 @@ public class Selector : MonoBehaviour {
 				if (Input.GetMouseButtonDown(0)) {
 					Instantiate(pieces[index], hit.transform.position, Quaternion.identity, hit.transform);
 					p.enabled = false;
-                    unused[index] -= 1;
-                    UpdateUnused();
+					unused[index] -= 1;
+					UpdateUnused();
 				} else {
 					holograms[index].SetActive(true);
 					holograms[index].transform.position = p.transform.position;
