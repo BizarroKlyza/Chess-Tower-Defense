@@ -25,7 +25,7 @@ public class Queen : Player {
 	public GameObject bullet;
 
 	public override void Start() {
-		health = 100f;
+		health = 200f;
 		base.Start();
 	}
 
