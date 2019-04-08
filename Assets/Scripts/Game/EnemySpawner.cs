@@ -13,17 +13,17 @@ public class EnemySpawner : MonoBehaviour {
 	float timer = 0f;
 	float spawnRate = 3f;
 
-	int enem = 0;
+	public static int enem = 0;
 	public GameOver gameOver;
 
 	void Update() {
+		if (enem >= 25) {
+			gameOver.Won();
+		}
 		timer += Time.deltaTime;
 		if (timer >= spawnRate) {
-			enem++;
-			if (enem >= 5) {
-				gameOver.Won();
-			}
 			timer -= spawnRate;
+			spawnRate = Random.Range(2f, 3f);
 			index = Random.Range(0, enemies.Length);
 			Instantiate(enemies[index], new Vector3(7f, 0f, Mathf.Round(Random.Range(0f, 7f))), Quaternion.identity, enemiesParent);
 		}

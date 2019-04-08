@@ -14,8 +14,8 @@ public class Selector : MonoBehaviour {
 	[Header("Holograms")]
 	public GameObject[] holograms;
 
-	int[] originalUnused = { 8, 6, 6, 6, 2 };
-	int[] unused = { 8, 6, 6, 6, 2 };
+	int[] originalUnused = { 8, 3, 2, 2, 1 };
+	int[] unused = { 8, 3, 2, 2, 1 };
 	int unusedHologramIndex = -1;
 	Vector3 unusedPos;
 	List<GameObject> unusedPieces = new List<GameObject>();

@@ -19,6 +19,9 @@ public abstract class Enemy : Piece {
 	}
 
 	public override void Update() {
+		if (health <= 0) {
+			EnemySpawner.enem++;
+		}
 		base.Update();
         if (attacking) {
 			timer += Time.deltaTime;
