@@ -11,11 +11,13 @@ public class GameOver : MonoBehaviour {
 	public void Lost() {
 		Time.timeScale = 0.2f;
 		lostMenu.SetActive(true);
+		EnemySpawner.enem = 0;
 	}
 	
 	public void Won() {
 		Time.timeScale = 0.2f;
 		wonMenu.SetActive(true);
+		EnemySpawner.enem = 0;
 	}
 
 	public void ExitToMain() {

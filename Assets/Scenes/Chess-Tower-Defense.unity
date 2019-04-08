@@ -676,6 +676,7 @@ RectTransform:
   - {fileID: 20243297}
   - {fileID: 134420278}
   - {fileID: 1616112666}
+  - {fileID: 478607210}
   m_Father: {fileID: 1278542304}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3287,6 +3288,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19a268f49c2e9844ab00cc6cdcda55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &478607209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 478607210}
+  - component: {fileID: 478607212}
+  - component: {fileID: 478607211}
+  m_Layer: 2
+  m_Name: Quad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &478607210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 478607209}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -394.44736, y: -221.17363, z: 5.0526314}
+  m_LocalScale: {x: 33.684204, y: 33.684265, z: 1.6842121}
+  m_Children: []
+  m_Father: {fileID: 116885744}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!64 &478607211
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 478607209}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &478607212
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 478607209}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &499341467
 GameObject:
   m_ObjectHideFlags: 0
@@ -3531,6 +3583,7 @@ MonoBehaviour:
   - {fileID: 1761155873971946, guid: c29789956925e1a4c952e2c2bc87f1ec, type: 2}
   - {fileID: 1492309424862060, guid: fe32d7405ee9f144d8815845d1cae45d, type: 2}
   - {fileID: 1588383907919056, guid: d03d279ca44c6b34cacb9c7f42254678, type: 2}
+  - {fileID: 1498162204437922, guid: df9d5ab080f3a5442b2e4490c82a2ca1, type: 2}
   enemiesParent: {fileID: 398768910}
   gameOver: {fileID: 1278542305}
 --- !u!1 &535434524
@@ -13461,6 +13514,7 @@ RectTransform:
   - {fileID: 1538349932}
   - {fileID: 622023253}
   - {fileID: 535434525}
+  - {fileID: 1966575265}
   m_Father: {fileID: 1278542304}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13697,6 +13751,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19a268f49c2e9844ab00cc6cdcda55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1966575261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1966575265}
+  - component: {fileID: 1966575264}
+  - component: {fileID: 1966575262}
+  m_Layer: 2
+  m_Name: Quad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!64 &1966575262
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1966575261}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &1966575264
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1966575261}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1966575265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1966575261}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -394.44736, y: -221.17365, z: 5.0526314}
+  m_LocalScale: {x: 33.684204, y: 33.684235, z: 1.6842121}
+  m_Children: []
+  m_Father: {fileID: 1938521097}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1987193083
 GameObject:
   m_ObjectHideFlags: 0
