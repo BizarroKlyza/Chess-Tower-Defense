@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour {
 	public GameOver gameOver;
 
 	void Update() {
-		if (enem >= 25) {
+		if (enem >= 35) {
 			gameOver.Won();
 		}
 		timer += Time.deltaTime;
