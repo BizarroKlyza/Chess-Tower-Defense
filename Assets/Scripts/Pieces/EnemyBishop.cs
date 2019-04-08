@@ -7,7 +7,7 @@ public class EnemyBishop : Enemy {
 	public override void Start() {
 		health = 100f;
 		damage = 10f;
-		speed = 0.5f;
+		speed = 30f;
 		attackSpeed = 0.5f;
 		base.Start();
 	}
