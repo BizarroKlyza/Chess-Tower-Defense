@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// Written by Sinclair
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class Selector : MonoBehaviour {
@@ -14,33 +16,45 @@ public class Selector : MonoBehaviour {
 
 	int[] originalUnused = { 8, 6, 6, 6, 2 };
 	int[] unused = { 8, 6, 6, 6, 2 };
+	int unusedHologramIndex = -1;
 	Vector3 unusedPos;
+	List<GameObject> unusedPieces = new List<GameObject>();
 
-	// List in use. Not actually an unused list
-	List<GameObject> unusedList = new List<GameObject>();
+	/*MeshRenderer tile;
+	Material tileMat;
+	Material redTileMat;*/
 
 	void UpdateUnused() {
 
-		foreach (GameObject piece in unusedList) {
+		foreach (GameObject piece in unusedPieces) {
 			Destroy(piece);
 		}
 
-		unusedList.Clear();
+		unusedPieces.Clear();
 
 		unusedPos = new Vector3(7f, -1f, -2f);
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < pieces.Length; i++) {
 			for (int j = 0; j < originalUnused[i]; j++) {
-				if (j < unused[i]) {
-					GameObject clone = Instantiate(pieces[i], unusedPos, Quaternion.identity);
-					Destroy(clone.GetComponent<Piece>());
-					unusedList.Add(clone);
-
+				if (i == 2 && j == 0) {
+					unusedPos.x = 7;
+					unusedPos.z = 9;
 				}
-
+				if (j < unused[i]) {
+					if (i == unusedHologramIndex && j == unused[i] - 1) {
+						GameObject clone = Instantiate(holograms[i], unusedPos, Quaternion.identity);
+						unusedPieces.Add(clone);
+					}
+					else {
+						GameObject clone = Instantiate(pieces[i], unusedPos, Quaternion.identity);
+						Destroy(clone.GetComponent<Piece>());
+						unusedPieces.Add(clone);
+					}
+				}
 				if (unusedPos.x == 0) {
 					unusedPos.x = 7;
-					unusedPos.z -= 1;
-				} else {
+					unusedPos.z -= 1 * (i < 2 ? 1 : -1);
+				}
+				else {
 					unusedPos.x -= 1;
 				}
 			}
@@ -48,15 +62,31 @@ public class Selector : MonoBehaviour {
 	}
 
 	void Start() {
+		//redTileMat=Resources.Load<Material>("Materials/RedTile");
 		UpdateUnused();
 	}
 
 	void Update() {
 
+		unusedHologramIndex = -1;
+
+		//if (tile) tile.material = redTileMat;
+
 		if (Input.GetKeyDown(KeyCode.LeftArrow)) {
-			index = (index + pieces.Length - 1) % pieces.Length;
-		} else if (Input.GetKeyDown(KeyCode.RightArrow)) {
-			index = (index + 1) % pieces.Length;
+			for (int i = pieces.Length - 1; i > -1; i--) {
+				if (unused[(index + i) % pieces.Length] > 0) {
+					index = (index + i) % pieces.Length;
+					break;
+				}
+			}
+		}
+		else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+			for (int i = 1; i < pieces.Length + 1; i++) {
+				if (unused[(index + i) % pieces.Length] > 0) {
+					index = (index + i) % pieces.Length;
+					break;
+				}
+			}
 		}
 
 		// Disable all holograms
@@ -70,16 +100,36 @@ public class Selector : MonoBehaviour {
 		if (Physics.Raycast(mouseRay, out hit, 250f, layerMask)) {
 			Placeable p = hit.transform.GetComponent<Placeable>();
 			if (p && p.enabled) {
-				if (Input.GetMouseButtonDown(0)) {
+				if (index == pieces.Length) {
+					/*tile=p.gameObject.GetComponent<MeshRenderer>();
+					tileMat = tile.material;
+					tile.material=redTileMat;*/
+				}
+				else if (Input.GetMouseButtonDown(0)) {
 					Instantiate(pieces[index], hit.transform.position, Quaternion.identity, hit.transform);
 					p.enabled = false;
 					unused[index] -= 1;
-					UpdateUnused();
-				} else {
+					if (unused[index] == 0) {
+						bool empty = true;
+						for (int i = 1; i < pieces.Length; i++) {
+							if (unused[(index + i) % pieces.Length] > 0) {
+								index = (index + i) % pieces.Length;
+								empty = false;
+								break;
+							}
+						}
+						if (empty) {
+							index = pieces.Length;
+						}
+					}
+				}
+				else {
+					unusedHologramIndex = index;
 					holograms[index].SetActive(true);
 					holograms[index].transform.position = p.transform.position;
 				}
 			}
 		}
+		UpdateUnused();
 	}
 }
