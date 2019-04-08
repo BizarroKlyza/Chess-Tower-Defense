@@ -11,4 +11,8 @@ public class GameState : MonoBehaviour {
 			gameOver.Lost();
 		}
 	}
+
+	public void exitGame() {
+		Application.Quit();
+	} 
 }

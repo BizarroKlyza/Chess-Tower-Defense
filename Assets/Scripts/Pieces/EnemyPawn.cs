@@ -7,7 +7,7 @@ public class EnemyPawn : Enemy {
 	public override void Start() {
 		health = 80f;
 		damage = 10f;
-		speed = 0.3f;
+		speed = 20f;
 		attackSpeed = 0.5f;
 		base.Start();
 	}

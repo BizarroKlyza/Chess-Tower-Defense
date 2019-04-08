@@ -31,7 +31,7 @@ public abstract class Enemy : Piece {
 				target.GetComponent<Piece>().flashing = true;
 			}
         } else {
-		    transform.position += velocity;
+		    transform.position += velocity * Time.deltaTime;
 		}
 		if (!target) {
 			attacking = false;
